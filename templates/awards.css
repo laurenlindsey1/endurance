@@ -13,6 +13,7 @@ h1{
 	font-family: fantasy;
 	height: auto;
 }
+
 header {
 	width: 100%;
 	margin: auto;
@@ -34,16 +35,13 @@ span.textbody{
   position: absolute;
   left: 400px;
   top: 300px;
-  font-size: 36;
-}
-li{
-  font-size: 40;
+  font-size: 25px;
 }
 .menu {
 	width: 240px;
 	height: 100%;
 	position: relative;
-	background: rgb(130, 207, 255);
+	background: rgb(31, 35, 43);
 	left: -240px;
 	transition: all .3s ease-in-out;
 	-webkit-transition: all .3s ease-in-out;
@@ -54,7 +52,7 @@ li{
 }
 .menu-icon {
 	padding: 10px 20px;
-	background: rgb(130, 207, 255);
+	background: rgb(31, 35, 43);
 	color: white;
 	cursor: pointer;
   float:right;
