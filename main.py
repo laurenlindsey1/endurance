@@ -28,17 +28,17 @@ from google.appengine.api import users
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 class MainHandler(webapp2.RequestHandler):
-    #make an alert saying disclaimer bla bla bla, ask josh about what should go inside 
+    #make an alert saying disclaimer bla bla bla, ask josh about what should go inside
     def get(self):
     	template=env.get_template('main.html')
         user = users.get_current_user()
-        usernickname = user.nickname() 
+        usernickname = user.nickname()
         redirect = users.create_logout_url('/')
         self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
         #templates:
-            #gotta figure out how to transcribe this into html/jinja cuz right now it just ugly and bad 
-            #need an href that says aboutme 
+            #gotta figure out how to transcribe this into html/jinja cuz right now it just ugly and bad
+            #need an href that says aboutme
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
     	template=env.get_template('about.html')
@@ -55,7 +55,7 @@ class AwardsHandler(webapp2.RequestHandler):
 
 class WorkoutHandler(webapp2.RequestHandler):
     def get(self):
-        template=env.get_template('workout.html')
+        template=env.get_template('workouts.html')
         self.response.write(template.render())
         #templates:
             #need just have a blurb about the goals etc in paragraph style
@@ -85,7 +85,7 @@ class ProfileHandler(webapp2.RequestHandler):
    #      user = User(name=self.request.get('name'), int(height=self.request.get('height')), int(weight=self.request.get('weight')), skill_level=self.request.get('skill_level'))
    #      user.put()
    #      self.response.write(template.render({'user':user}))
-   #      #need to probably do this at login or from profile or something 
+   #      #need to probably do this at login or from profile or something
    #      #need corresponding jinja
 
    # #awards
@@ -95,9 +95,9 @@ class ProfileHandler(webapp2.RequestHandler):
    #      awards.put()
    #      self.response.write(template.render({'awards':awards}))
    #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja 
+   #      #need corresponding jinja
 
-   # #profile 
+   # #profile
    # def post(self):
    #      template=env.get_template('main.html')
    #      user = User.query(User.name == name).get()
@@ -106,13 +106,13 @@ class ProfileHandler(webapp2.RequestHandler):
    #      profile.put()
    #      self.response.write(template.render({'profile':profile}))
    #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja         
-   #  #templates: 
-   #      #need new user button that pulls up a form if you click on it that allows you to implement the user properties with jinja 
-   #      #need tabs with workouts as an option and awards 
-   #      #need separate html that has all of the awards information on it 
+   #      #need corresponding jinja
+   #  #templates:
+   #      #need new user button that pulls up a form if you click on it that allows you to implement the user properties with jinja
+   #      #need tabs with workouts as an option and awards
+   #      #need separate html that has all of the awards information on it
 
-   #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE 
+   #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE
 
 
 app = webapp2.WSGIApplication([

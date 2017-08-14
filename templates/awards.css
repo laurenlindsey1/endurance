@@ -3,7 +3,8 @@ body {
    background-image: url("http://wallpapercave.com/wp/IKCREeg.png");
    background-repeat: repeat-y;
 }
-a { text-decoration: none; color: #00A5CC; }
+a {
+  text-decoration: none; color: #00A5CC; }
 h1{
 	color: white;
 	font-size: 90px;
