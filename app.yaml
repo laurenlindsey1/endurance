@@ -10,8 +10,14 @@ handlers:
   upload: favicon\.ico
 - url: /styles
   static_dir: styles
+<<<<<<< HEAD
 - url: /scripts
   static_dir: scripts
+=======
+- url: /
+  script: main.app
+  login: required
+>>>>>>> a36689d7ecf10a80be2a3d6d2325f6ecc5680c60
 - url: .*
   script: main.app
   login: required

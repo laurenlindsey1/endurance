@@ -10,7 +10,6 @@
     <h1> Endurance </h1>
   	<a href="/about">About Us</a>
 
-
   	<body>
       <input type="checkbox" id="menuToggle">
     <label for="menuToggle" class="menu-icon">&#9776;</label>
@@ -38,5 +37,19 @@
 		<a href="/about">About Us</a>
   		</div>
 
+<<<<<<< HEAD
+=======
+    <div>
+        {%if user%}
+            Welcome, {{usernickname}}!<a href="{{redirect}}">sign out</a>
+        </br>
+        {%else%}
+          <a href="{{create_login}}">Sign in or Register</a>.
+      {%endif%}
+
+      <a href="/about">About Us</a>
+    </div>
+
+>>>>>>> a36689d7ecf10a80be2a3d6d2325f6ecc5680c60
   </body>
 </html>
