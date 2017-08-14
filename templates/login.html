@@ -5,8 +5,17 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+
   <body>
-  	<a href="/about">About Us</a>
-  	
+    <div>
+        {%if user%}
+            Welcome, {{usernickname}}!<a href="{{redirect}}">sign out</a>
+        </br>
+        {%else%}
+          <a href="{{create_login}}">Sign in or Register</a>.
+      {%endif%}
+      
+      <a href="/about">About Us</a>
+    </div>
   </body>
 </html>
