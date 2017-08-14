@@ -30,22 +30,15 @@ env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 class MainHandler(webapp2.RequestHandler):
     #make an alert saying disclaimer bla bla bla, ask josh about what should go inside 
     def get(self):
-    	template=env.get_template('login.html')
+    	template=env.get_template('main.html')
         user = users.get_current_user()
-        if user:
-            usernickname = user.nickname() 
-            redirect = users.create_logout_url('/')
-            self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
-        else:
-            create_login = users.create_login_url('/profile')
-            user.put()
-            self.response.write(template.render({'user': False, 'create_login':create_login}))
-            self.response.write(create_login)
+        usernickname = user.nickname() 
+        redirect = users.create_logout_url('/')
+        self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
         #templates:
             #gotta figure out how to transcribe this into html/jinja cuz right now it just ugly and bad 
             #need an href that says aboutme 
-
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
     	template=env.get_template('about.html')
