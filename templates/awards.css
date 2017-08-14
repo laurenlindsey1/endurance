@@ -1,7 +1,7 @@
 * { padding: 0; margin: 0; }
 body {
-  background-image: url("https://previews.123rf.com/images/lamarinx/lamarinx1108/lamarinx110800001/10251342-Close-up-of-dry-cracked-ground-great-for-background--Stock-Photo.jpg");
-  background-size: 100% auto;
+   background-image: url("http://wallpapercave.com/wp/IKCREeg.png");
+   background-repeat: repeat-y;
 }
 a { text-decoration: none; color: #00A5CC; }
 h1{
@@ -10,7 +10,7 @@ h1{
 	text-align: center;
 	background-color: grey;
 	text-shadow:5px 5px black;
-	font-family: fantasy;
+	font-family:"Arial Black", Gadget, sans-serif;
 	height: auto;
 }
 
@@ -31,11 +31,17 @@ nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
 nav li:last-child a { border-bottom: none; }
 
 span.textbody{
-  color: black;
+  color: white;
   position: absolute;
   left: 400px;
   top: 300px;
+   padding-right: 150px;
   font-size: 25px;
+  text-shadow: 10px;
+    border: 15px double white;
+    border-radius: 30px;
+    padding: 50px;
+     box-shadow: 3px 3px 4px black;
 }
 .menu {
 	width: 240px;
@@ -43,11 +49,7 @@ span.textbody{
 	position: relative;
 	background: rgb(31, 35, 43);
 	left: -240px;
-	transition: all .3s ease-in-out;
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-ms-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
+	transition: all 1s ease-in-out;
 
 }
 .menu-icon {
