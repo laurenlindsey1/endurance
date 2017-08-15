@@ -18,7 +18,6 @@
 
 import webapp2
 import jinja2
-from models import User
 from models import Awards
 from models import Profile
 from models import Routine
@@ -60,15 +59,7 @@ class AwardsHandler(webapp2.RequestHandler):
       )
     key=award.put()
     self.response.write(template.render())
-#         #need jinja and need to render the correct variables
-
-#         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
-#         #need jinja and need to render the correct variables
-
-#         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
-#         #for jinja do up by powers of 10 in terms of notification
-#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
-
+    
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workouts.html')
@@ -145,7 +136,6 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/about', AboutHandler),
     ('/workout_history', WorkoutsHistoryHandler),
-    ('/create_user',UserHandler),
     ('/routine', RoutineHandler),
     ('/awards', AwardsHandler),
     ('/workouts', WorkoutHandler),
