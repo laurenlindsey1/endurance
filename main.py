@@ -86,7 +86,6 @@ class ProfileHandler(webapp2.RequestHandler):
     template=env.get_template('main.html')
     self.response.write(template.render())
 
-<<<<<<< HEAD
 class HowToHandler(webapp2.RequestHandler):
     def get(self):
     	template=env.get_template('workouthowto.html')
@@ -142,8 +141,6 @@ class AbsHandler(webapp2.RequestHandler):
 
    #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE
 
-=======
->>>>>>> c9716bae8d863984500c79caead3bb660c77ffde
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/about', AboutHandler),
