@@ -10,6 +10,8 @@ handlers:
   upload: favicon\.ico
 - url: /styles
   static_dir: styles
+- url: /scripts
+  static_dir: scripts
 - url: /
   script: main.app
   login: required
@@ -22,4 +24,3 @@ libraries:
   version: "2.5.2"
 - name: jinja2
   version: latest
-
