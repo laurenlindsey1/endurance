@@ -104,11 +104,11 @@ class UserHandler(webapp2.RequestHandler):
 #         #for jinja do up by powers of 10 in terms of notification
 #     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
 
-# class WorkoutHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template=env.get_template('workouts.html')
-#         self.response.write(template.render())
-#         #need youtube api
+class WorkoutHandler(webapp2.RequestHandler):
+    def get(self):
+        template=env.get_template('workouts.html')
+        self.response.write(template.render())
+        #need youtube api
 
 # class WorkoutsHistoryHandler(webapp2.RequestHandler):
 #     def get(self):
