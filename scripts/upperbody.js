@@ -28,15 +28,91 @@ function display1() {
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display2() {
-  $('.welcome').text("table 2!!");
+  $('.welcome').html(`
+            <table>
+              <tr>
+                  <th colspan="2">Upper Body Sample Routine #2</th>
+              </tr>
+              <tr>
+                <span class="bolded">  <td>Exercise</td>
+                  <td>Reps</td</span>
+              </tr>
+              <tr>
+                  <td>Pull Ups</td>
+                  <td>10</td>
+              </tr>
+              <tr>
+                  <td>Wide Push Ups</td>
+                  <td>10</td>
+              </tr>
+              <tr>
+                  <td>Incline Push Ups</td>
+                  <td>12</td>
+              </tr>
+              <tr>
+                  <td>Chin Above Bar Hold</td>
+                  <td>20 (sec)</td>
+              </tr>
+            </table>`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display3() {
-  $('.welcome').text("table 3!!");
+  $('.welcome').html(`          <table>
+              <tr>
+                  <th colspan="2">Upper Body Sample Routine #3</th>
+              </tr>
+              <tr>
+                <span class="bolded">  <td>Exercise</td>
+                  <td>Reps</td></span>
+              </tr>
+              <tr>
+                  <td>Dips</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td>Diamond Push Ups</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td>Close Grip Pull Ups</td>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>30 (sec)</td>
+              </tr>
+            </table>
+`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display4() {
-  $('.welcome').text("table 4!!");
+  $('.welcome').html(`
+            <table>
+              <tr>
+                  <th colspan="2">Upper Body Sample Routine #4</th>
+              </tr>
+              <tr>
+                  <span class="bolded"><td>Exercise</td>
+                  <td>Reps</td></span>
+              </tr>
+              <tr>
+                  <td>Push Ups</td>
+                  <td>12</td>
+              </tr>
+              <tr>
+                  <td>Wide Push Ups</td>
+                  <td>10</td>
+              </tr>
+              <tr>
+                  <td>Decline Push Ups</td>
+                  <td>6</td>
+              </tr>
+              <tr>
+                  <td>Incline Push Ups</td>
+                  <td>12</td>
+              </tr>
+            </table>
+`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 
