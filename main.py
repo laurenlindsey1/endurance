@@ -55,8 +55,8 @@ class AboutHandler(webapp2.RequestHandler):
 #             weight=int(self.request.get('weight')),
 #             skill_level=self.request.get('skill_level'),
 #             birthdate=date(self.request.get('birthdate')),
-#             timestamp=date(self.request.get('timestamp'))            
-#             )   
+#             timestamp=date(self.request.get('timestamp'))
+#             )
 #         key=user.put()
 #         #need something to make sure they only do this once
 #         self.response.write(template.render())
@@ -67,7 +67,7 @@ class AboutHandler(webapp2.RequestHandler):
 #         routine=Routine(
 #             quantity=int(self.request.get('quantity')),
 #             description=self.request.get('description')
-#             )   
+#             )
 #         key=routine.put()
 #         self.response.write(template.render())
 
@@ -86,7 +86,7 @@ class AboutHandler(webapp2.RequestHandler):
 #             )
 #         key=award.put()
 #         self.response.write(template.render())
-#         #need jinja and need to render the correct variables 
+#         #need jinja and need to render the correct variables
 #         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
 
 class WorkoutHandler(webapp2.RequestHandler):
