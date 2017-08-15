@@ -35,6 +35,7 @@ class MainHandler(webapp2.RequestHandler):
     self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
 class AboutHandler(webapp2.RequestHandler):
+<<<<<<< HEAD
   def get(self):
     template=env.get_template('about.html')
     self.response.write(template.render())
@@ -60,6 +61,75 @@ class AwardsHandler(webapp2.RequestHandler):
     key=award.put()
     self.response.write(template.render())
     
+=======
+    def get(self):
+    	template=env.get_template('about.html')
+        self.response.write(template.render())
+
+# class UserHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template=env.get_template('create_user.html')
+#         user=User(
+#             user_name=self.request.get('user_name'),
+#             height=int(self.request.get('height')),
+#             weight=int(self.request.get('weight')),
+#             skill_level=self.request.get('skill_level'),
+#             birthdate=date(self.request.get('birthdate')),
+#             timestamp=date(self.request.get('timestamp'))
+#             )
+#         key=user.put()
+#         #need something to make sure they only do this once
+#         self.response.write(template.render())
+
+class UserHandler(webapp2.RequestHandler):
+    def get(self):
+        template=env.get_template('create_user.html')
+        user=User(
+            user_name=self.request.get('user_name'),
+            timestamp=date(self.request.get('timestamp')) #how to make regular timestamp
+            )
+        key=user.put()
+        #need something to make sure they only do this once
+        self.response.write(template.render())
+
+# class RoutineHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template=env.get_template('routine.html')
+#         routine=Routine(
+#             quantity=int(self.request.get('quantity')),
+#             description=self.request.get('description')
+#             )
+#         key=routine.put()
+#         self.response.write(template.render())
+
+# class AwardsHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template=env.get_template('awards.html')
+#         timestamp=self.request.get("timestamp")
+#         user_name=self.request.get("user_name")
+#         user = User.query(User.user_name == user_name).get()
+#         routine = Routine.query(Routine.timestamp == timestamp).fetch()
+#         award = Award(
+#             category=self.request.get('category'),
+#             timestamp = date(self.request.get('timestamp')),
+#             user_key = self.request.get(user.key),
+#             routine_key = self.request.get(routine.key)
+#             )
+#         key=award.put()
+
+#         self.response.write(template.render())
+#         #need jinja and need to render the correct variables
+
+#         self.response.write(template.render({'category':category,'timestamp':timestamp, }))
+#         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
+#         #need jinja and need to render the correct variables
+
+
+#         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
+#         #for jinja do up by powers of 10 in terms of notification
+#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
+
+>>>>>>> a536f336bd69e71a3eb9b5378196fcd5d0f13fae
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workouts.html')
