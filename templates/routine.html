@@ -4,6 +4,8 @@
   <head>
     <link href="styles/awards.css" rel="stylesheet">
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type ='text/javascript' src='scripts/routine.js'></script>
     <title></title>
   </head>
   <body>
@@ -23,11 +25,12 @@
           <li><a href="/logout">Log Out</a></li>
       </ul>
   </nav>
-      <form method='get' action="/routine" name="routine">
+      <form id="routine" method='get' action="/routine" name="routine">
       Quanity<input type="text" name="quantity">(reps or seconds)
       Exercise: <input type="text" name="description">
-      <input type="submit" name="submit">
-
       </form>
+      <input id="submit" type="submit" name="+">
+      <input id="plus" type="button" name="+">
+
   </body>
 </html>
