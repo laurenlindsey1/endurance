@@ -35,7 +35,6 @@ class MainHandler(webapp2.RequestHandler):
     self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
 class AboutHandler(webapp2.RequestHandler):
-<<<<<<< HEAD
   def get(self):
     template=env.get_template('about.html')
     self.response.write(template.render())
@@ -60,8 +59,7 @@ class AwardsHandler(webapp2.RequestHandler):
       )
     key=award.put()
     self.response.write(template.render())
-    
-=======
+
     def get(self):
     	template=env.get_template('about.html')
         self.response.write(template.render())
@@ -129,7 +127,6 @@ class UserHandler(webapp2.RequestHandler):
 #         #for jinja do up by powers of 10 in terms of notification
 #     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
 
->>>>>>> a536f336bd69e71a3eb9b5378196fcd5d0f13fae
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workouts.html')
