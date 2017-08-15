@@ -1,15 +1,16 @@
 from google.appengine.ext import ndb
 
 class User(ndb.Model):
-  name = ndb.StringProperty()
+  user_name = ndb.StringProperty()
   height = ndb.IntegerProperty()
   weight = ndb.IntegerProperty()
   skill_level = ndb.StringProperty()
+  birthdate = ndb.DateTimeProperty()
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
 #form that you add user 
 
 
-class Activity(ndb.Model):
+class Routine(ndb.Model):
   quantity = ndb.IntegerProperty()
   description = ndb.IntegerProperty()
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
@@ -17,9 +18,10 @@ class Activity(ndb.Model):
 
 
 class Awards(ndb.Model):
-  workout_awards = ndb.StringProperty()
+  category = ndb.StringProperty()
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
-  activity_key = ndb.KeyProperty()
+  user_key = ndb.KeyProperty(index=True)
+  routine_key = ndb.KeyProperty(index=True)
 
 class Profile(ndb.Model):
   workout_data = ndb.StringProperty()
