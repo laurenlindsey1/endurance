@@ -37,15 +37,12 @@ class MainHandler(webapp2.RequestHandler):
         redirect = users.create_logout_url('/')
         self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
-        #templates:
-            #gotta figure out how to transcribe this into html/jinja cuz right now it just ugly and bad
-            #need an href that says aboutme
-
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
     	template=env.get_template('about.html')
         self.response.write(template.render())
 
+<<<<<<< HEAD
 # class UserHandler(webapp2.RequestHandler):
 #     def get(self):
 #         template=env.get_template('create_user.html')
@@ -60,6 +57,18 @@ class AboutHandler(webapp2.RequestHandler):
 #         key=user.put()
 #         #need something to make sure they only do this once
 #         self.response.write(template.render())
+=======
+class UserHandler(webapp2.RequestHandler):
+    def get(self):
+        template=env.get_template('create_user.html')
+        user=User(
+            user_name=self.request.get('user_name'),
+            timestamp=date(self.request.get('timestamp')) #how to make regular timestamp            
+            )   
+        key=user.put()
+        #need something to make sure they only do this once
+        self.response.write(template.render())
+>>>>>>> ae9a51148ccaab293c4161dab9ee2af533bdd677
 
 # class RoutineHandler(webapp2.RequestHandler):
 #     def get(self):
@@ -77,7 +86,7 @@ class AboutHandler(webapp2.RequestHandler):
 #         timestamp=self.request.get("timestamp")
 #         user_name=self.request.get("user_name")
 #         user = User.query(User.user_name == user_name).get()
-#         routine = Routine.query(Routine.timestamp == timestamp).get()
+#         routine = Routine.query(Routine.timestamp == timestamp).fetch()
 #         award = Award(
 #             category=self.request.get('category'),
 #             timestamp = date(self.request.get('timestamp')),
@@ -85,15 +94,23 @@ class AboutHandler(webapp2.RequestHandler):
 #             routine_key = self.request.get(routine.key)
 #             )
 #         key=award.put()
+<<<<<<< HEAD
 #         self.response.write(template.render())
 #         #need jinja and need to render the correct variables
+=======
+#         self.response.write(template.render({'category':category,'timestamp':timestamp, }))
+#         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
+#         #need jinja and need to render the correct variables 
+>>>>>>> ae9a51148ccaab293c4161dab9ee2af533bdd677
 #         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
+#         #for jinja do up by powers of 10 in terms of notification 
+#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS 
 
-class WorkoutHandler(webapp2.RequestHandler):
-    def get(self):
-        template=env.get_template('workouts.html')
-        self.response.write(template.render())
-        #need youtube api
+# class WorkoutHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template=env.get_template('workouts.html')
+#         self.response.write(template.render())
+#         #need youtube api
 
 # class WorkoutsHistoryHandler(webapp2.RequestHandler):
 #     def get(self):
@@ -107,46 +124,11 @@ class ProfileHandler(webapp2.RequestHandler):
     	template=env.get_template('main.html')
         self.response.write(template.render())
 
-   # #user
-   # def post(self):
-   #      template=env.get_template('main.html')
-   #      user = User(name=self.request.get('name'), int(height=self.request.get('height')), int(weight=self.request.get('weight')), skill_level=self.request.get('skill_level'))
-   #      user.put()
-   #      self.response.write(template.render({'user':user}))
-   #      #need to probably do this at login or from profile or something
-   #      #need corresponding jinja
-
-   # #awards
-   # def post(self):
-   #      template=env.get_template('awards.html')
-   #      awards = Awards(login_awards=self.request.get('login_awards'), workout_awards=self.request.get('workout_awards'))
-   #      awards.put()
-   #      self.response.write(template.render({'awards':awards}))
-   #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja
-
-   # #profile
-   # def post(self):
-   #      template=env.get_template('main.html')
-   #      user = User.query(User.name == name).get()
-   #      awards = Awards.query(User.name == name).get()
-   #      profile = Profile(int(workout_data=self.request.get('workout_data')), routine=self.request.get('routine'), user_key=self.request.get(user.key), awards_key=self.request.get(awards.key))
-   #      profile.put()
-   #      self.response.write(template.render({'profile':profile}))
-   #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja
-   #  #templates:
-   #      #need new user button that pulls up a form if you click on it that allows you to implement the user properties with jinja
-   #      #need tabs with workouts as an option and awards
-   #      #need separate html that has all of the awards information on it
-
-   #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/about', AboutHandler),
     # ('/workout_history', WorkoutsHistoryHandler),
-    # ('/create_user',UserHandler),
+    ('/create_user',UserHandler),
     # ('/routine', RoutineHandler),
     # ('/awards', AwardsHandler),
     ('/workouts', WorkoutHandler),
