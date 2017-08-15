@@ -142,8 +142,6 @@ class ProfileHandler(webapp2.RequestHandler):
 
    #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE
 
->>>>>>> 1cc93be373012f23f1168d6fa2d4562c561a662a
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/about', AboutHandler),
