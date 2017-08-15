@@ -61,13 +61,10 @@ class AwardsHandler(webapp2.RequestHandler):
     key=award.put()
     self.response.write(template.render())
 #         #need jinja and need to render the correct variables
-<<<<<<< HEAD
-=======
 
 #         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
 #         #need jinja and need to render the correct variables
 
->>>>>>> c9716bae8d863984500c79caead3bb660c77ffde
 #         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
 #         #for jinja do up by powers of 10 in terms of notification
 #     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
