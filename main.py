@@ -42,7 +42,6 @@ class AboutHandler(webapp2.RequestHandler):
     	template=env.get_template('about.html')
         self.response.write(template.render())
 
-<<<<<<< HEAD
 # class UserHandler(webapp2.RequestHandler):
 #     def get(self):
 #         template=env.get_template('create_user.html')
@@ -57,18 +56,17 @@ class AboutHandler(webapp2.RequestHandler):
 #         key=user.put()
 #         #need something to make sure they only do this once
 #         self.response.write(template.render())
-=======
+
 class UserHandler(webapp2.RequestHandler):
     def get(self):
         template=env.get_template('create_user.html')
         user=User(
             user_name=self.request.get('user_name'),
-            timestamp=date(self.request.get('timestamp')) #how to make regular timestamp            
-            )   
+            timestamp=date(self.request.get('timestamp')) #how to make regular timestamp
+            )
         key=user.put()
         #need something to make sure they only do this once
         self.response.write(template.render())
->>>>>>> ae9a51148ccaab293c4161dab9ee2af533bdd677
 
 # class RoutineHandler(webapp2.RequestHandler):
 #     def get(self):
@@ -94,17 +92,17 @@ class UserHandler(webapp2.RequestHandler):
 #             routine_key = self.request.get(routine.key)
 #             )
 #         key=award.put()
-<<<<<<< HEAD
+
 #         self.response.write(template.render())
 #         #need jinja and need to render the correct variables
-=======
+
 #         self.response.write(template.render({'category':category,'timestamp':timestamp, }))
 #         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
-#         #need jinja and need to render the correct variables 
->>>>>>> ae9a51148ccaab293c4161dab9ee2af533bdd677
+#         #need jinja and need to render the correct variables
+
 #         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
-#         #for jinja do up by powers of 10 in terms of notification 
-#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS 
+#         #for jinja do up by powers of 10 in terms of notification
+#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
 
 # class WorkoutHandler(webapp2.RequestHandler):
 #     def get(self):
