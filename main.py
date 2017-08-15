@@ -37,12 +37,10 @@ class MainHandler(webapp2.RequestHandler):
         redirect = users.create_logout_url('/')
         self.response.write(template.render({'user': True, 'usernickname':usernickname, 'redirect': redirect}))
 
-<<<<<<< HEAD
-=======
         #templates:
             #gotta figure out how to transcribe this into html/jinja cuz right now it just ugly and bad
             #need an href that says aboutme
->>>>>>> 1cc93be373012f23f1168d6fa2d4562c561a662a
+
 class AboutHandler(webapp2.RequestHandler):
     def get(self):
     	template=env.get_template('about.html')
@@ -109,8 +107,6 @@ class ProfileHandler(webapp2.RequestHandler):
     	template=env.get_template('main.html')
         self.response.write(template.render())
 
-<<<<<<< HEAD
-=======
    # #user
    # def post(self):
    #      template=env.get_template('main.html')
