@@ -13,7 +13,9 @@ h1{
 	font-family:"Arial Black", Gadget, sans-serif;
 	height: auto;
 }
-
+span.bolded{
+  font-weight: bold;
+}
 header {
 	width: 100%;
 	margin: auto;
