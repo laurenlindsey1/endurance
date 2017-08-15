@@ -25,18 +25,16 @@
         <li><a href="/logout">Log Out</a></li>
     </ul>
 </nav>
-<span class="textbody">
-<h2>Congratulations {{ user_name }}!</h2>
-<p>You did {{ routine }}.<p>
-#--
-<h3> Awards: </h3>
-  <ul>
-    <li>100 pushups</li>
-    <li>Exercised with Endurance for 5 consecutive days</li>
-    <li>Watched 5 workout videos with Endurance</li>
-  </ul>
-</p>
-</span>
+
+<div>
+  <h3> Awards: </h3>
+  {%while routine>=10%}
+  <h2>Congratulations {{ user_name }}!</h2>
+    <p>You did {{ routine }}.<p>
+
+
+
+</div>
 
     <title>Awards</title>
   </head>
