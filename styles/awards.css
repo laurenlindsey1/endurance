@@ -45,6 +45,18 @@ span.textbody{
     padding: 50px;
      box-shadow: 3px 3px 4px black;
 }
+h4.welcome{
+  opacity: 0;
+}
+button{
+	font-size: 15px;
+	background-color: white;
+	font-family: monospace;
+	height:110px;
+	width: 110px;
+	border-radius:50%;
+	border:2px solid black;
+	text-align: center;}
 .menu {
 	width: 240px;
 	height: 100%;
