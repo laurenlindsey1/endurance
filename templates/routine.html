@@ -12,9 +12,9 @@
   <label for="menuToggle" class="menu-icon">&#9776;</label>
 
   <nav class="menu">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/profile">Profile</a></li>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile">Profile</a></li>
           <li><a href="/workouts">Workouts</a></li>
           <li><a href="/awards">Awards</a></li>
           <li><a href="/routine">Add Routine</a></li>
@@ -23,5 +23,11 @@
           <li><a href="/logout">Log Out</a></li>
       </ul>
   </nav>
+      <form method='get' action="/routine" name="routine">
+      Quanity<input type="text" name="quantity">(reps or seconds)
+      Exercise: <input type="text" name="description">
+      <input type="submit" name="submit">
+
+      </form>
   </body>
 </html>
