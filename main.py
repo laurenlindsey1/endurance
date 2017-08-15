@@ -96,7 +96,6 @@ class UserHandler(webapp2.RequestHandler):
 #         self.response.write(template.render())
 #         #need jinja and need to render the correct variables
 
-
 #         self.response.write(template.render({'category':category,'timestamp':timestamp, }))
 #         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
 #         #need jinja and need to render the correct variables
