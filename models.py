@@ -2,10 +2,6 @@ from google.appengine.ext import ndb
 
 class User(ndb.Model):
   user_name = ndb.StringProperty()
-  height = ndb.IntegerProperty()
-  weight = ndb.IntegerProperty()
-  skill_level = ndb.StringProperty()
-  birthdate = ndb.DateTimeProperty()
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
 #form that you add user 
 
