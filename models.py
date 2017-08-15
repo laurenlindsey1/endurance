@@ -20,8 +20,8 @@ class Routine(ndb.Model):
 class Awards(ndb.Model):
   category = ndb.StringProperty()
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
-  user_key = ndb.KeyProperty(index=True)
-  routine_key = ndb.KeyProperty(index=True)
+  user_key = ndb.KeyProperty()
+  routine_key = ndb.KeyProperty()
 
 class Profile(ndb.Model):
   workout_data = ndb.StringProperty()
