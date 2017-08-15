@@ -145,10 +145,10 @@ class ProfileHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/about', AboutHandler),
-    ('/workout_history', WorkoutsHistoryHandler),
-    ('/create_user',UserHandler),
-    ('/routine', RoutineHandler),
-    ('/awards', AwardsHandler),
+    # ('/workout_history', WorkoutsHistoryHandler),
+    # ('/create_user',UserHandler),
+    # ('/routine', RoutineHandler),
+    # ('/awards', AwardsHandler),
     ('/workouts', WorkoutHandler),
     ('/profile', ProfileHandler)
 ], debug=True)
