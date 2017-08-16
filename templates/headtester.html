@@ -1,12 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "scripts/headtest.js"></script>
+<link href="styles/headtest.css" rel="stylesheet">
+
+
 <!DOCTYPE html>
 <html>
   <head>
-    <link href=" styles/headtest.css" rel="stylesheet">
     <meta charset="utf-8">
-    <title>My Exercise History</title>
+    <title>Test page!</title>
   </head>
   <body>
-        <h1> Endurance </h1>
+    <h1> Endurance </h1>
     <input type="checkbox" id="menuToggle">
   <label for="menuToggle" class="menu-icon">&#9776;</label>
 
@@ -18,11 +22,11 @@
           <li><a href="/routine">Add Routine</a></li>
           <li><a href="/workout_history">Workout History</a></li>
           <li><a href="/about">About Us</a></li>
-          <li><a href="{{redirect}}">Log Out</a></li>
+          <li><a href="/logout">Log Out</a></li>
       </ul>
   </nav>
-  <div>
-    <p>{{history}}</p>
-  </div>
+  <span class="textbody">
+    <p> my text
+  </span>
   </body>
 </html>

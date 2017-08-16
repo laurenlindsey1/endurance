@@ -1,0 +1,88 @@
+* { padding: 0; margin: 0; }
+body {
+   background-color: white;
+}
+a { text-decoration: none; color: rgb(169, 166, 224) }
+h1{
+	color: rgb(76, 70, 135);
+	font-size: 90px;
+font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-style: oblique;
+	text-align: center;
+	background-color: rgb(170, 225, 239);
+	text-shadow:5px 5px black;
+	height: auto;
+}
+span.bolded{
+  font-weight: bold;
+}
+header {
+	width: 100%;
+	margin: auto;
+	border-bottom: 1px solid #EEE;
+}
+
+nav { width: 100%; text-align: center; }
+nav a {
+	display: block;
+	padding: 15px 0;
+	border-bottom: 1px solid #white;
+	color: white;
+}
+nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
+nav li:last-child a { border-bottom: none; }
+
+span.textbody{
+  color: black;
+  position: absolute;
+  left: 250px;
+  top: 200px;
+  right: 100px;
+   padding-right: 150px;
+  font-size: 25px;
+  text-shadow: 10px;
+    border: 15px double rgb(171, 221, 159);
+    border-radius: 30px;
+    padding: 50px;
+     box-shadow: 3px 3px 4px black;
+}
+h4.welcome{
+  opacity: 0;
+}
+button{
+	font-size: 15px;
+	background-color: rgb(170, 225, 239);
+	font-family: monospace;
+	height:80px;
+	width: 130px;
+	border:1px solid black;
+	text-align: center;
+  margin: 30px;
+  color: black;
+  border-radius: 10px;
+}
+button:hover {
+    background-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.menu {
+	width: 240px;
+	height: 100%;
+	position: relative;
+	background: rgb(31, 35, 43);
+	left: -240px;
+	transition: all 1s ease-in-out;
+
+}
+.menu-icon {
+	padding: 10px 20px;
+	background: rgb(31, 35, 43);
+	color: white;
+	cursor: pointer;
+  float:right;
+	margin: 6px 6px 0 0;
+	border-radius: 5px;
+}
+#menuToggle { display: none; }
+
+#menuToggle:checked ~ .menu { position: absolute; left: 0; }
