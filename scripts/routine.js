@@ -6,24 +6,17 @@ $('#routine').append(`
       </form>`);
 }
 
-
 function submit(){
-	console.log('clicked')
 	var quantity = [];
    	var description = [];
-
    	$('.routine').each(function(i) {
    		quantity.push($($('.quantity')[i]).val());
    		description.push($($('.description')[i]).val());
-
    	});
-
    	quantity = quantity.join('_')
    	description = description.join('_')
    	console.log(quantity);
    	console.log(description);
-
-
    	$('.quantity').val(quantity);
    	$('.description').val(description);
    	$('.routine').submit();
