@@ -35,7 +35,7 @@ function display1() {
           <td>Plank</td>
           <td>30 (sec)</td>
       </tr>
-    </table>`);
+    </table></br>`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display2() {
@@ -63,7 +63,7 @@ function display2() {
           <td>Heel Touches</td>
           <td>24 (12 on each side)</td>
       </tr>
-    </table>`);
+    </table></br>`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display3() {
@@ -91,7 +91,7 @@ function display3() {
             <td>Flutter Kicks</td>
             <td>30 (sec)</td>
         </tr>
-      </table>`);
+      </table></br>`);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display4() {
@@ -119,7 +119,7 @@ function display4() {
           <td>V Hold</td>
           <td>30 (sec)</td>
       </tr>
-    </table>`);
+    </table></br> `);
   $('.welcome').animate({opacity:1}, 1000)
 }
 function display5() {
