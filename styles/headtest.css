@@ -2,7 +2,7 @@
 body {
    background-color: white;
 }
-a { text-decoration: none; color: #00A5CC; }
+a { text-decoration: none; color: rgb(169, 166, 224) }
 h1{
 	color: rgb(76, 70, 135);
 	font-size: 90px;
@@ -51,13 +51,20 @@ h4.welcome{
 }
 button{
 	font-size: 15px;
-	background-color: white;
+	background-color: rgb(170, 225, 239);
 	font-family: monospace;
-	height:110px;
-	width: 110px;
-	border-radius:50%;
-	border:2px solid black;
-	text-align: center;}
+	height:80px;
+	width: 130px;
+	border:1px solid black;
+	text-align: center;
+  margin: 30px;
+  color: black;
+  border-radius: 10px;
+}
+button:hover {
+    background-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 .menu {
 	width: 240px;
 	height: 100%;

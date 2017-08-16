@@ -3,6 +3,10 @@ function setupHandlers() {
   $('.2').on('click', display2);
   $('.3').on('click', display3);
   $('.4').on('click', display4);
+  $('.video1').on('click', display5);
+  $('.video2').on('click', display6);
+  $('.video3').on('click', display7);
+  $('.video4').on('click', display8);
 }
 $(document).ready(setupHandlers);
 
@@ -117,5 +121,30 @@ function display4() {
       </tr>
     </table>
 `);
+  $('.welcome').animate({opacity:1}, 1000)
+}
+
+function display5() {
+  $('.welcome').html(`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLZU6Y6XqCAcSx-DFWn2rnFntq8LOsoEJe" frameborder="0" allowfullscreen></iframe>
+    `);
+  $('.welcome').animate({opacity:1}, 1000)
+}
+function display6() {
+  $('.welcome').html(`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5lPziO_t_ViDGJiUXEZVE6C7u7xyUsXG" frameborder="0" allowfullscreen></iframe>
+  `);
+  $('.welcome').animate({opacity:1}, 1000)
+}
+function display7() {
+  $('.welcome').html(`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLSCcAGyv98ieU4iS1nGOuhyyjG3RyLhTF" frameborder="0" allowfullscreen></iframe>
+  `);
+  $('.welcome').animate({opacity:1}, 1000)
+}
+function display8() {
+  $('.welcome').html(`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLRCgg2aTq5NXfHHESL0v7CDyy13p4OXxD" frameborder="0" allowfullscreen></iframe>
+  `);
   $('.welcome').animate({opacity:1}, 1000)
 }
