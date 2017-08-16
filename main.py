@@ -44,12 +44,19 @@ class RoutineHandler(webapp2.RequestHandler):
     user=users.get_current_user()
     usernickname = user.nickname()
     routine=Routine(
-      quantity=self.request.get('quantity'),
-      description=self.request.get('description'),
+      quantity=self.request.get('quantity').split('_'),
+      description=self.request.get('description').split('_'),
       usernickname=usernickname
       )
-    key=routine.put()
+    routine.put()
+    # for quantity in routine.quantity:
+    #   key=quantity.put()
+    # description=routine.description.each()
+    # for each in routine.description:
+    #   key=description.put()
     self.response.write(template.render())
+
+   # you are going to for loop append and split it up and send it to the db 
 
 class AwardsHandler(webapp2.RequestHandler):
   def get(self):
@@ -61,6 +68,15 @@ class AwardsHandler(webapp2.RequestHandler):
       routine_number=routine_number,
       usernickname=usernickname
       )
+    base_url = "http://api.giphy.com/v1/gifs/search?"
+    url_params = {'q': self.request.get('search'), 'api_key': 'dc6zaTOxFJmzC', 'limit': 10}
+    #self.requests allows you to basically search for a gif based on the search name you assign it to 
+    giphy_response = urllib2.urlopen(base_url + urllib.urlencode(url_params)).read()
+    #now in json
+    parsed_giphy_dictionary = json.loads(giphy_response)
+    #make to python dict
+    gif_url = parsed_giphy_dictionary['data'][0]['images']['original']['url']
+    self.response.write(template.render({'gif':gif_url}))
     key=award.put()
     self.response.write(template.render({'routine_number':routine_number}))
 
