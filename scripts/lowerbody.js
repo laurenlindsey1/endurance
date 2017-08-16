@@ -13,11 +13,8 @@ $(document).ready(setupHandlers);
 function display1() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Lower Body Sample Routine #1</th>
-      </tr>
-      <tr>
-          <span class="bolded"><td>Exercise</td>
-          <td>Reps</td></span>
+          <span class="bolded"><td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>Squats</td>
@@ -41,11 +38,8 @@ function display1() {
 function display2() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Lower Body Sample Routine #2</th>
-      </tr>
-      <tr>
-          <span class="bolded"><td>Exercise</td>
-          <td>Reps</td></span>
+          <span class="bolded"><td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>Squats</td>
@@ -68,12 +62,10 @@ function display2() {
 }
 function display3() {
   $('.welcome').html(`  <table>
+
       <tr>
-          <th colspan="2">Lower Body Sample Routine #3</th>
-      </tr>
-      <tr>
-        <span class="bolded">  <td>Exercise</td>
-          <td>Reps</td></span>
+        <span class="bolded">  <td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>Squats</td>
@@ -97,11 +89,8 @@ function display3() {
 function display4() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Lower Body Sample Routine #4</th>
-      </tr>
-      <tr>
-          <span class="bolded"><td>Exercise</td>
-          <td>Reps</td></span>
+          <span class="bolded"><td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>High Knees</td>

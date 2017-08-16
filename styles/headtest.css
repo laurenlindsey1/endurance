@@ -1,4 +1,5 @@
-* { padding: 0; margin: 0; }
+* {
+   padding: 0; margin: 0; }
 body {
    background-color: white;
 }
@@ -12,14 +13,17 @@ font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 	background-color: rgb(170, 225, 239);
 	text-shadow:5px 5px black;
 	height: auto;
-}
-span.bolded{
-  font-weight: bold;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
 }
 header {
 	width: 100%;
 	margin: auto;
 	border-bottom: 1px solid #EEE;
+}
+h3{
+  text-align: center;
 }
 
 nav { width: 100%; text-align: center; }
@@ -31,7 +35,9 @@ nav a {
 }
 nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
 nav li:last-child a { border-bottom: none; }
-
+span.smalltext{
+  font-size: 15px;
+}
 span.textbody{
   color: black;
   position: absolute;
@@ -68,20 +74,23 @@ button:hover {
 .menu {
 	width: 240px;
 	height: 100%;
-	position: relative;
+	position: absolute;
 	background: rgb(31, 35, 43);
 	left: -240px;
 	transition: all 1s ease-in-out;
+  margin: 100px 6px 0 0;
+	border-radius: 5px;
+  z-index: 6;
 
 }
 .menu-icon {
 	padding: 10px 20px;
 	background: rgb(31, 35, 43);
 	color: white;
-	cursor: pointer;
   float:right;
-	margin: 6px 6px 0 0;
+	margin: 100px 6px 0 0;
 	border-radius: 5px;
+  z-index: 6;
 }
 #menuToggle { display: none; }
 
