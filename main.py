@@ -19,7 +19,6 @@
 import webapp2
 import jinja2
 from models import Awards
-from models import Profile
 from models import Routine
 from google.appengine.api import users
 # from datetime import date
@@ -42,9 +41,12 @@ class AboutHandler(webapp2.RequestHandler):
 class RoutineHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('routine.html')
+    user=users.get_current_user()
+    usernickname = user.nickname()
     routine=Routine(
       quantity=self.request.get('quantity'),
-      description=self.request.get('description')
+      description=self.request.get('description'),
+      usernickname=usernickname
       )
     key=routine.put()
     self.response.write(template.render())
@@ -53,79 +55,14 @@ class AwardsHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('awards.html')
     user=users.get_current_user()
-    routine = Routine.query(Routine.user_id == user.user_id).count()
-    award = Award(
-      routine_key = self.request.get(routine.key)
+    usernickname = user.nickname()
+    routine_number = (Routine.query(Routine.usernickname == usernickname)).count()
+    award = Awards(
+      routine_number=routine_number,
+      usernickname=usernickname
       )
     key=award.put()
-    self.response.write(template.render())
-
-    def get(self):
-    	template=env.get_template('about.html')
-        self.response.write(template.render())
-
-# class UserHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template=env.get_template('create_user.html')
-#         user=User(
-#             user_name=self.request.get('user_name'),
-#             height=int(self.request.get('height')),
-#             weight=int(self.request.get('weight')),
-#             skill_level=self.request.get('skill_level'),
-#             birthdate=date(self.request.get('birthdate')),
-#             timestamp=date(self.request.get('timestamp'))
-#             )
-#         key=user.put()
-#         #need something to make sure they only do this once
-#         self.response.write(template.render())
-
-class UserHandler(webapp2.RequestHandler):
-    def get(self):
-        template=env.get_template('create_user.html')
-        user=User(
-            user_name=self.request.get('user_name'),
-            timestamp=date(self.request.get('timestamp')) #how to make regular timestamp
-            )
-        key=user.put()
-        #need something to make sure they only do this once
-        self.response.write(template.render())
-
-# class RoutineHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template=env.get_template('routine.html')
-#         routine=Routine(
-#             quantity=int(self.request.get('quantity')),
-#             description=self.request.get('description')
-#             )
-#         key=routine.put()
-#         self.response.write(template.render())
-
-# class AwardsHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template=env.get_template('awards.html')
-#         timestamp=self.request.get("timestamp")
-#         user_name=self.request.get("user_name")
-#         user = User.query(User.user_name == user_name).get()
-#         routine = Routine.query(Routine.timestamp == timestamp).fetch()
-#         award = Award(
-#             category=self.request.get('category'),
-#             timestamp = date(self.request.get('timestamp')),
-#             user_key = self.request.get(user.key),
-#             routine_key = self.request.get(routine.key)
-#             )
-#         key=award.put()
-
-#         self.response.write(template.render())
-#         #need jinja and need to render the correct variables
-
-#         self.response.write(template.render({'category':category,'timestamp':timestamp, }))
-#         #need to write congratulations {{user_key}}! You recieved an award for complete x number of routines
-#         #need jinja and need to render the correct variables
-
-
-#         #need to check it is okay with the index issue and how he was saying use activity rather than user do I even need it user
-#         #for jinja do up by powers of 10 in terms of notification
-#     # YOU NEED TO MAKE A FUNCTION THAT WILL SEND BACK AN AWARD AFTER THE USER INPUTS
+    self.response.write(template.render({'routine_number':routine_number}))
 
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
@@ -135,9 +72,9 @@ class WorkoutHandler(webapp2.RequestHandler):
 class WorkoutsHistoryHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workout_history.html')
-    user= users.get_current_user()
-    history = Routine.query(Routine.user_id == user.user_id).fetch()
-    self.response.write(template.render())
+    user = users.get_current_user()
+    history = (Routine.query(Routine.usernickname == usernickname)).fetch()
+    self.response.write(template.render({'history':history}))
 
 class ProfileHandler(webapp2.RequestHandler):
   def get(self):

@@ -13,21 +13,22 @@
   <input type="checkbox" id="menuToggle">
 <label for="menuToggle" class="menu-icon">&#9776;</label>
 
-<nav class="menu">
-  <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/profile">Profile</a></li>
-        <li><a href="/workouts">Workouts</a></li>
-        <li><a href="/awards">Awards</a></li>
-        <li><a href="/routine">Add Routine</a></li>
-        <li><a href="/workout_history">Workout History</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/logout">Log Out</a></li>
-    </ul>
-</nav>
+    <nav class="menu">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile">Profile</a></li>
+          <li><a href="/workouts">Workouts</a></li>
+          <li><a href="/awards">Awards</a></li>
+          <li><a href="/routine">Add Routine</a></li>
+          <li><a href="/workout_history">Workout History</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="{{redirect}}">Log Out</a></li>
+      </ul>
+  </nav>
 
 <div>
   <h3> Awards: </h3>
+<<<<<<< HEAD
   {%while routine>=10%}
   <h2>Congratulations {{ user_name }}!</h2>
     <p>You did {{ routine }}.<p>
@@ -38,12 +39,13 @@
 		</div>
 
 
+=======
+  <h2>Congratulations!</h2>
+    <p>You did {{routine_number}} routines.</p>
+<!--     <div>
+		<img src="{{gif}}">
+		</div> -->
+>>>>>>> d333b9514d379f8248c4198bca708658eec184a8
 </div>
-
-    <title>Awards</title>
-  </head>
-  <body>
-
-
   </body>
 </html>
