@@ -164,6 +164,11 @@ class AbsHandler(webapp2.RequestHandler):
     	template=env.get_template('abs.html')
         self.response.write(template.render())
 
+class TestHandler(webapp2.RequestHandler):
+    def get(self):
+    	template=env.get_template('headtester.html')
+        self.response.write(template.render())
+
    # #user
    # def post(self):
    #      template=env.get_template('main.html')
@@ -210,5 +215,6 @@ app = webapp2.WSGIApplication([
     ('/upperbody', UpperHandler),
     ('/lowerbody', LowerHandler),
     ('/abs', AbsHandler),
-    ('/profile', ProfileHandler)
+    ('/profile', ProfileHandler),
+    ('/test', TestHandler)
 ], debug=True)
