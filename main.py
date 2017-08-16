@@ -18,6 +18,9 @@
 
 import webapp2
 import jinja2
+import urllib2
+import urllib
+import json
 from models import Awards
 from models import Routine
 from google.appengine.api import users
@@ -68,17 +71,17 @@ class AwardsHandler(webapp2.RequestHandler):
       routine_number=routine_number,
       usernickname=usernickname
       )
-    base_url = "http://api.giphy.com/v1/gifs/search?"
-    url_params = {'q': self.request.get('search'), 'api_key': 'dc6zaTOxFJmzC', 'limit': 10}
-    #self.requests allows you to basically search for a gif based on the search name you assign it to 
-    giphy_response = urllib2.urlopen(base_url + urllib.urlencode(url_params)).read()
-    #now in json
-    parsed_giphy_dictionary = json.loads(giphy_response)
-    #make to python dict
-    gif_url = parsed_giphy_dictionary['data'][0]['images']['original']['url']
-    self.response.write(template.render({'gif':gif_url}))
-    key=award.put()
-    self.response.write(template.render({'routine_number':routine_number}))
+    if (award.routine_number)%5==0 or (award.routine_number)>=5:
+      giphy_data_source = urllib2.urlopen("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&limit=10&tag=congratulations")
+      giphy_json_content = giphy_data_source.read()
+      parsed_giphy_dictionary = json.loads(giphy_json_content)
+      gif_url = parsed_giphy_dictionary['data'][0]['images']['original']['url']
+      key=award.put()
+      self.response.write(template.render({'routine_number':award.routine_number,'gif':gif_url}))
+    else:
+      key=award.put()
+      self.response.write(template.render({'routine_number':award.routine_number}))
+
 
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
@@ -89,6 +92,7 @@ class WorkoutsHistoryHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workout_history.html')
     user = users.get_current_user()
+    usernickname = user.nickname()
     history = (Routine.query(Routine.usernickname == usernickname)).fetch()
     self.response.write(template.render({'history':history}))
 
@@ -117,9 +121,14 @@ class AbsHandler(webapp2.RequestHandler):
     	template=env.get_template('abs.html')
         self.response.write(template.render())
 
-class TestHandler(webapp2.RequestHandler):
+class InstructionsHandler(webapp2.RequestHandler):
     def get(self):
-    	template=env.get_template('headtester.html')
+    	template=env.get_template('instructions.html')
+        self.response.write(template.render())
+
+class SuppliesHandler(webapp2.RequestHandler):
+    def get(self):
+    	template=env.get_template('supplies.html')
         self.response.write(template.render())
 
    # #user
@@ -169,5 +178,6 @@ app = webapp2.WSGIApplication([
     ('/lowerbody', LowerHandler),
     ('/abs', AbsHandler),
     ('/profile', ProfileHandler),
-    ('/test', TestHandler)
+    ('/instructions', InstructionsHandler),
+    ('/supplies', SuppliesHandler)
 ], debug=True)

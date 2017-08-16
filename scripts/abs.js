@@ -13,11 +13,8 @@ $(document).ready(setupHandlers);
 function display1() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Abs Sample Routine #1</th>
-      </tr>
-      <tr>
-        <span class="bolded">  <td>Exercise</td>
-          <td>Reps</td> </span>
+       <td><u>Exercise</td>
+          <td><u>Reps</td>
       </tr>
       <tr>
           <td>Sit Ups</td>
@@ -41,27 +38,24 @@ function display1() {
 function display2() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Abs Sample Routine #2</th>
-      </tr>
-      <tr>
-          <span class="bolded"><td>Exercise</td>
-          <td>Reps</td></span>
+          <span class="bolded"><td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>Knee Raises</td>
           <td>12</td>
       </tr>
       <tr>
-          <td>Side Planks (Left then Right)</td>
-          <td>30 (sec for each side)</td>
+          <td>Side Planks</td>
+          <td>30 (sec each side)</td>
       </tr>
       <tr>
           <td>Side to Side Knee Raises</td>
-          <td>12 (6 on each side)</td>
+          <td>12 (6 each side)</td>
       </tr>
       <tr>
           <td>Heel Touches</td>
-          <td>24 (12 on each side)</td>
+          <td>24 (12 each side)</td>
       </tr>
     </table></br>`);
   $('.welcome').animate({opacity:1}, 1000)
@@ -69,11 +63,8 @@ function display2() {
 function display3() {
   $('.welcome').html(`    <table>
         <tr>
-            <th colspan="2">Abs Sample Routine #3</th>
-        </tr>
-        <tr>
-            <span class="bolded"><td>Exercise</td>
-            <td>Reps</td></span>
+            <span class="bolded"><td><u>Exercise</td>
+            <td><u>Reps</td></span>
         </tr>
         <tr>
             <td>Sit Ups</td>
@@ -97,11 +88,8 @@ function display3() {
 function display4() {
   $('.welcome').html(`  <table>
       <tr>
-          <th colspan="2">Abs Sample Routine #4</th>
-      </tr>
-      <tr>
-        <span class="bolded">  <td>Exercise</td>
-          <td>Reps</td></span>
+        <span class="bolded">  <td><u>Exercise</td>
+          <td><u>Reps</td></span>
       </tr>
       <tr>
           <td>Knee Raises</td>
