@@ -67,7 +67,7 @@ class AwardsHandler(webapp2.RequestHandler):
       routine_number=routine_number,
       usernickname=usernickname
       )
-    if (award.routine_number)%5==0 or (award.routine_number)>=5:
+    if (int(award.routine_number)%5==0 and int(award.routine_number)>=5):
       giphy_data_source = urllib2.urlopen("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&limit=10&tag=congratulations&rated=g")
       giphy_json_content = giphy_data_source.read()
       parsed_giphy_dictionary = json.loads(giphy_json_content)

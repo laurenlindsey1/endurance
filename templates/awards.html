@@ -30,11 +30,12 @@
   <h2>Congratulations!</h2>
   <div id="award">
   </div>
+    {%if routine_number==1%}
+    <p>You did 1 routine</p>
+    {%else%}
     <p>You did {{routine_number}} routines.</p>
-    <div>
-    <img src="{{gif}}" >
-
-    </div>
+    <img src="{{gif}}">
+    {%endif%}
   </div>
   </span>
   </body>
