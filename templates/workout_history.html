@@ -21,16 +21,22 @@
           <li><a href="{{redirect}}">Log Out</a></li>
       </ul>
   </nav>
+  <span class ="textbody">
+    <h2>Workout History:</h2> </br>
   <div>
     {%for routine in history%}
-      <h2>Date</h2>
+    <span class = "ws">
+      <h4>Date</h4>
       {{routine.timestamp}}
       <h4>Quantity</h4>
       {{routine.quantity}}
-      <h4>Description</h4>
-      {{routine.description}}
+      <h4>Exercise</h4>
+      {{routine.description}}</br>
+      -------------------------------------------------------------------------
+    </span>
     {%endfor%}
     </ul>
   </div>
+</span>
   </body>
 </html>

@@ -35,16 +35,15 @@ nav a {
 nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
 nav li:last-child a { border-bottom: none; }
 span.image1{
-  position: absolute;
-  left: 890px;
-  top: -70px;
+  position: relative;
 }
 span.textbox1{
-  position: absolute;
-  left: 900px;
-  top: 0px;
-  font-size: 15px;
-  color: black;
+  position: relative;
+}
+.child{
+  position:absolute;
+  top:150px;
+  right:20px;
 }
 span.textbox2{
   position: relative;
@@ -88,6 +87,11 @@ span.textbody{
     border-radius: 30px;
     padding: 50px;
      box-shadow: 3px 3px 4px black;
+}
+form{
+  margin: 100px 6px 0 0;
+	border-radius: 5px;
+  z-index: 6;
 }
 h4.welcome{
   opacity: 0;
