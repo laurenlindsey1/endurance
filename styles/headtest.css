@@ -25,7 +25,9 @@ header {
 h3{
   text-align: center;
 }
-
+img{
+  border:1px solid green;
+}
 nav { width: 100%; text-align: center; }
 nav a {
 	display: block;
