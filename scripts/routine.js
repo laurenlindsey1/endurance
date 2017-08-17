@@ -1,6 +1,6 @@
 function append(){
 $('#routine').append(`
-      Quanity<input class="quantity" type="text" name="quantity">(reps or seconds)
+      Quanity (reps or seconds)<input class="quantity" type="text" name="quantity">
       Exercise: <input class="description" type="text" name="description">`);
 }
 
