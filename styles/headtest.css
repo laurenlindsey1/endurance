@@ -34,6 +34,12 @@ nav a {
 }
 nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
 nav li:last-child a { border-bottom: none; }
+
+.child2{
+  position: absolute;
+  top: 260px;
+  left: 800px;
+}
 span.image1{
   position: relative;
 }
