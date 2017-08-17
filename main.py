@@ -14,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-
 import webapp2
 import jinja2
 import urllib2
@@ -67,7 +65,7 @@ class AwardsHandler(webapp2.RequestHandler):
       routine_number=routine_number,
       usernickname=usernickname
       )
-    if (award.routine_number)%5==0 or (award.routine_number)>=5:
+    if int(award.routine_number)%5==0 or int(award.routine_number)>=5:
       giphy_data_source = urllib2.urlopen("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&limit=10&tag=congratulations&rated=g")
       giphy_json_content = giphy_data_source.read()
       parsed_giphy_dictionary = json.loads(giphy_json_content)
@@ -77,7 +75,6 @@ class AwardsHandler(webapp2.RequestHandler):
     else:
       key=award.put()
       self.response.write(template.render({'routine_number':award.routine_number,'redirect': redirect}))
-
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workouts.html')
