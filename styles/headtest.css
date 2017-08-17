@@ -37,8 +37,9 @@ nav li:last-child a { border-bottom: none; }
 
 .child2{
   position: absolute;
-  top: 260px;
-  left: 800px;
+  top: 50px;
+  right: 200px;
+
 }
 span.image1{
   position: relative;
