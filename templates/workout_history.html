@@ -22,7 +22,15 @@
       </ul>
   </nav>
   <div>
-    <p>{{history}}</p>
+    {%for routine in history%}
+      <h2>Date</h2>
+      {{routine.timestamp}}
+      <h4>Quantity</h4>
+      {{routine.quantity}}
+      <h4>Description</h4>
+      {{routine.description}}
+    {%endfor%}
+    </ul>
   </div>
   </body>
 </html>
