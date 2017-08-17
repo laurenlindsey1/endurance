@@ -69,7 +69,7 @@ function display3() {
                   <td>5</td>
               </tr>
               <tr>
-                  <td>5</td>
+                  <td>Plank</td>
                   <td>30 (sec)</td>
               </tr>
             </table></br>
