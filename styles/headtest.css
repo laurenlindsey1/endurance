@@ -25,9 +25,6 @@ header {
 h3{
   text-align: center;
 }
-img{
-  border:1px solid green;
-}
 nav { width: 100%; text-align: center; }
 nav a {
 	display: block;
@@ -37,6 +34,29 @@ nav a {
 }
 nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
 nav li:last-child a { border-bottom: none; }
+span.image1{
+  position: absolute;
+  left: 890px;
+  top: -70px;
+}
+span.textbox1{
+  position: absolute;
+  left: 900px;
+  top: 0px;
+  font-size: 15px;
+}
+span.textbox2{
+  position: relative;
+  font-size: 15px;
+}
+span.image2{
+  position: absolute;
+  left: -10px;
+  top: -100px;
+}
+span.attributes2{
+  opacity: 0;
+}
 span.smalltext{
   font-size: 15px;
 }
