@@ -7,6 +7,10 @@ function setupHandlers() {
   $('.video2').on('click', display6);
   $('.video3').on('click', display7);
   $('.video4').on('click', display8);
+  $('.video1').on('click', displayArrow);
+  $('.video2').on('click', displayArrow);
+  $('.video3').on('click', displayArrow);
+  $('.video4').on('click', displayArrow);
 }
 $(document).ready(setupHandlers);
 
@@ -136,4 +140,17 @@ function display8() {
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLRCgg2aTq5NXfHHESL0v7CDyy13p4OXxD" frameborder="0" allowfullscreen></iframe>
   `);
   $('.welcome').animate({opacity:1}, 1000)
+}
+function displayArrow() {
+  $('.workouthelp').html(`
+    <span class ="image3"><img src="http://thavgross.com/wp-content/uploads/2012/08/hand-drawn-arrow.png" style="width:90px;height:40px;"></span>
+    <span class = "textbox3"><p>Click here to view more </br>videos in this playlist! </p></span>
+    `);
+  $('.workouthelp').animate({opacity:1}, 1000)
+  setTimeout(textGone, 3000);
+}
+function textGone(){
+  $('.workouthelp').animate(
+      {opacity:0},
+      1000)
 }

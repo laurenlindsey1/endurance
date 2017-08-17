@@ -44,7 +44,7 @@ span.textbox1{
   left: 900px;
   top: 0px;
   font-size: 15px;
-  color: black; 
+  color: black;
 }
 span.textbox2{
   position: relative;
@@ -57,6 +57,20 @@ span.image2{
 }
 span.attributes2{
   opacity: 0;
+}
+span.workouthelp{
+  opacity: 0;
+}
+span.image3{
+  position: absolute;
+  left: -37px;
+  top: 450px;
+}
+span.textbox3{
+  position: absolute;
+  left: -180px;
+  top: 450px;
+  font-size: 15px;
 }
 span.smalltext{
   font-size: 15px;
