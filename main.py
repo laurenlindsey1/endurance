@@ -46,15 +46,16 @@ class RoutineHandler(webapp2.RequestHandler):
     user=users.get_current_user()
     usernickname = user.nickname()
     redirect = users.create_logout_url('/')
-    routine=Routine(
-      quantity=self.request.get('quantity').split('_'),
-      description=self.request.get('description').split('_'),
-      usernickname=usernickname
-      )
-    routine.put()
+    quantities = self.request.get_all('quantity')
+    descriptions = self.request.get_all('description')
+    for (quantity, description) in zip(quantities, descriptions):
+      Routine(
+        usernickname=usernickname,
+        quantity=quantity,
+        description=description
+      ).put()
     self.response.write(template.render({'redirect': redirect}))
 
-#ask about the 1 issue  
 class AwardsHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('awards.html')
@@ -89,7 +90,11 @@ class WorkoutsHistoryHandler(webapp2.RequestHandler):
     user = users.get_current_user()
     usernickname = user.nickname()
     redirect = users.create_logout_url('/')
-    history = (Routine.query(Routine.usernickname == usernickname)).fetch()
+    # timestamp=Routine.timestamp
+    history=Routine.query(Routine.usernickname == usernickname).fetch()
+    # self.response.write(history)
+    # for routine in history:
+      # str(routine.timestamp) + ":" + str(routine.quantity) + "," + str(routine.description)
     self.response.write(template.render({'history':history,'redirect': redirect}))
 
 class HowToHandler(webapp2.RequestHandler):
