@@ -30,7 +30,11 @@
   <h2>Congratulations!</h2>
   <div id="award">
   </div>
+  {%if routine_number>=1 or routine==0%}
     <p>You did {{routine_number}} routines.</p>
+  {%else%}
+      <p>You did 1 routine.</p>
+  {%endif%}
     <div>
     <img src="{{gif}}" >
 
