@@ -1,0 +1,159 @@
+* {
+   padding: 0; margin: 0; }
+body {
+   background-color: white;
+}
+a { text-decoration: none; color: rgb(169, 166, 224) }
+h1{
+	color: rgb(76, 70, 135);
+	font-size: 90px;
+font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  font-style: oblique;
+	text-align: center;
+	background-color: rgb(170, 225, 239);
+	text-shadow:5px 5px black;
+	height: auto;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+}
+header {
+	width: 100%;
+	margin: auto;
+	border-bottom: 1px solid #EEE;
+}
+h3{
+  text-align: center;
+}
+nav { width: 100%; text-align: center; }
+nav a {
+	display: block;
+	padding: 15px 0;
+	border-bottom: 1px solid #white;
+	color: white;
+}
+nav a:hover { background: rgb(232, 236, 239); color: #FFF; }
+nav li:last-child a { border-bottom: none; }
+
+.child2{
+  position: absolute;
+  top: 260px;
+  left: 800px;
+}
+span.image1{
+  position: relative;
+}
+span.textbox1{
+  position: relative;
+}
+.child{
+  position:absolute;
+  top:150px;
+  right:20px;
+}
+.child1{
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+span.textbox2{
+  position: relative;
+  font-size: 15px;
+}
+span.image2{
+  position: absolute;
+  left: -10px;
+  top: -100px;
+}
+span.attributes2{
+  opacity: 0;
+}
+span.workouthelp{
+  opacity: 0;
+}
+span.image3{
+  position: absolute;
+  left: -37px;
+  top: 450px;
+}
+span.textbox3{
+  position: absolute;
+  left: -180px;
+  top: 450px;
+  font-size: 15px;
+}
+span.smalltext{
+  font-size: 15px;
+}
+span.textbody{
+  color: black;
+  position: absolute;
+  left: 250px;
+  top: 200px;
+  right: 100px;
+   padding-right: 150px;
+  font-size: 25px;
+  text-shadow: 10px;
+    border: 15px double rgb(171, 221, 159);
+    border-radius: 30px;
+    padding: 50px;
+     box-shadow: 3px 3px 4px black;
+}
+form{
+  margin: 100px 6px 0 0;
+	border-radius: 5px;
+  z-index: 6;
+}
+h4.welcome{
+  opacity: 0;
+}
+button{
+	font-size: 15px;
+	background-color: rgb(170, 225, 239);
+	font-family: monospace;
+	height:80px;
+	width: 130px;
+	border:1px solid black;
+	text-align: center;
+  margin: 30px;
+  color: black;
+  border-radius: 10px;
+}
+button:hover {
+    background-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+p{
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+img{
+  display: block;
+   margin: 0 auto;
+}
+.menu {
+	width: 240px;
+	height: 100%;
+	position: absolute;
+	background: rgb(31, 35, 43);
+	left: -240px;
+	transition: all 1s ease-in-out;
+  margin: 100px 6px 0 0;
+	border-radius: 5px;
+  z-index: 6;
+
+}
+.menu-icon {
+	padding: 10px 20px;
+	background: rgb(31, 35, 43);
+	color: white;
+  float:right;
+	margin: 100px 6px 0 0;
+	border-radius: 5px;
+  z-index: 6;
+}
+#menuToggle { display: none; }
+
+#menuToggle:checked ~ .menu { position: absolute; left: 0; }
