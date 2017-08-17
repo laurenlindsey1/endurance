@@ -57,6 +57,13 @@ span.textbox1{
   top:0px;
   left:0px;
 }
+span.centered{
+    text-align: center;
+    display: block;
+     margin: 0 auto;
+  }
+
+}
 span.textbox2{
   position: relative;
   font-size: 15px;
