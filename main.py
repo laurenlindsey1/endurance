@@ -24,7 +24,6 @@ import json
 from models import Awards
 from models import Routine
 from google.appengine.api import users
-# from datetime import date
 
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
@@ -39,33 +38,30 @@ class MainHandler(webapp2.RequestHandler):
 class AboutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('about.html')
-    self.response.write(template.render())
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class RoutineHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('routine.html')
     user=users.get_current_user()
     usernickname = user.nickname()
+    redirect = users.create_logout_url('/')
     routine=Routine(
       quantity=self.request.get('quantity').split('_'),
       description=self.request.get('description').split('_'),
       usernickname=usernickname
       )
     routine.put()
-    # for quantity in routine.quantity:
-    #   key=quantity.put()
-    # description=routine.description.each()
-    # for each in routine.description:
-    #   key=description.put()
-    self.response.write(template.render())
+    self.response.write(template.render({'redirect': redirect}))
 
-   # you are going to for loop append and split it up and send it to the db 
 
 class AwardsHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('awards.html')
     user=users.get_current_user()
     usernickname = user.nickname()
+    redirect = users.create_logout_url('/')
     routine_number = (Routine.query(Routine.usernickname == usernickname)).count()
     award = Awards(
       routine_number=routine_number,
@@ -77,106 +73,73 @@ class AwardsHandler(webapp2.RequestHandler):
       parsed_giphy_dictionary = json.loads(giphy_json_content)
       gif_url = parsed_giphy_dictionary['data']["image_original_url"]
       key=award.put()
-      self.response.write(template.render({'routine_number':award.routine_number,'gif':gif_url}))
+      self.response.write(template.render({'routine_number':award.routine_number,'gif':gif_url,'redirect': redirect}))
     else:
       key=award.put()
-      self.response.write(template.render({'routine_number':award.routine_number}))
+      self.response.write(template.render({'routine_number':award.routine_number,'redirect': redirect}))
 
 class WorkoutHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workouts.html')
-    self.response.write(template.render())
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class WorkoutsHistoryHandler(webapp2.RequestHandler):
   def get(self):
     template=env.get_template('workout_history.html')
     user = users.get_current_user()
     usernickname = user.nickname()
+    redirect = users.create_logout_url('/')
     history = (Routine.query(Routine.usernickname == usernickname)).fetch()
-    self.response.write(template.render({'history':history}))
-
-class ProfileHandler(webapp2.RequestHandler):
-  def get(self):
-    template=env.get_template('main.html')
-    self.response.write(template.render())
+    self.response.write(template.render({'history':history,'redirect': redirect}))
 
 class HowToHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('workouthowto.html')
-        self.response.write(template.render())
+  def get(self):
+    template=env.get_template('workouthowto.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class UpperHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('upperbody.html')
-        self.response.write(template.render())
+  def get(self):
+    template=env.get_template('upperbody.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class LowerHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('lowerbody.html')
-        self.response.write(template.render())
+  def get(self):
+    template=env.get_template('lowerbody.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class AbsHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('abs.html')
-        self.response.write(template.render())
+  def get(self):
+    template=env.get_template('abs.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class InstructionsHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('instructions.html')
-        self.response.write(template.render())
+  def get(self):
+    template=env.get_template('instructions.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 class SuppliesHandler(webapp2.RequestHandler):
-    def get(self):
-    	template=env.get_template('supplies.html')
-        self.response.write(template.render())
-
-   # #user
-   # def post(self):
-   #      template=env.get_template('main.html')
-   #      user = User(name=self.request.get('name'), int(height=self.request.get('height')), int(weight=self.request.get('weight')), skill_level=self.request.get('skill_level'))
-   #      user.put()
-   #      self.response.write(template.render({'user':user}))
-   #      #need to probably do this at login or from profile or something
-   #      #need corresponding jinja
-
-   # #awards
-   # def post(self):
-   #      template=env.get_template('awards.html')
-   #      awards = Awards(login_awards=self.request.get('login_awards'), workout_awards=self.request.get('workout_awards'))
-   #      awards.put()
-   #      self.response.write(template.render({'awards':awards}))
-   #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja
-
-   # #profile
-   # def post(self):
-   #      template=env.get_template('main.html')
-   #      user = User.query(User.name == name).get()
-   #      awards = Awards.query(User.name == name).get()
-   #      profile = Profile(int(workout_data=self.request.get('workout_data')), routine=self.request.get('routine'), user_key=self.request.get(user.key), awards_key=self.request.get(awards.key))
-   #      profile.put()
-   #      self.response.write(template.render({'profile':profile}))
-   #      #might need to make a new template for this thing that might be the easiest that is rendered after clicking a link a side div with the dropdown menu thing
-   #      #need corresponding jinja
-   #  #templates:
-   #      #need new user button that pulls up a form if you click on it that allows you to implement the user properties with jinja
-   #      #need tabs with workouts as an option and awards
-   #      #need separate html that has all of the awards information on it
-
-   #  #MIGHT NEED A WORKOUT_DATA HANDLER THAT LINKS TO THE FORM ON THE WORKOUT_HISTORY PAGE
+  def get(self):
+    template=env.get_template('supplies.html')
+    redirect = users.create_logout_url('/')
+    self.response.write(template.render({'redirect': redirect}))
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/about', AboutHandler),
-    ('/workout_history', WorkoutsHistoryHandler),
-    ('/routine', RoutineHandler),
-    ('/awards', AwardsHandler),
-    ('/workouts', WorkoutHandler),
-    ('/workouthowto', HowToHandler),
-    ('/upperbody', UpperHandler),
-    ('/lowerbody', LowerHandler),
-    ('/abs', AbsHandler),
-    ('/profile', ProfileHandler),
-    ('/instructions', InstructionsHandler),
-    ('/supplies', SuppliesHandler)
+  ('/', MainHandler),
+  ('/about', AboutHandler),
+  ('/workout_history', WorkoutsHistoryHandler),
+  ('/routine', RoutineHandler),
+  ('/awards', AwardsHandler),
+  ('/workouts', WorkoutHandler),
+  ('/workouthowto', HowToHandler),
+  ('/upperbody', UpperHandler),
+  ('/lowerbody', LowerHandler),
+  ('/abs', AbsHandler),
+  ('/instructions', InstructionsHandler),
+  ('/supplies', SuppliesHandler)
 ], debug=True)
