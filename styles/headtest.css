@@ -44,6 +44,7 @@ span.textbox1{
   left: 900px;
   top: 0px;
   font-size: 15px;
+  color: black; 
 }
 span.textbox2{
   position: relative;
